@@ -1,10 +1,14 @@
 package logic;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import framework.CreateSession;
+// import cucumber.api.java.en.And;
+// import cucumber.api.java.en.Given;
+// import cucumber.api.java.en.Then;
+// import cucumber.api.java.en.When;
+
+//import framework.CreateSession;
+import framework.MySession;
+import io.cucumber.java.en.*;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.Homepage;
@@ -31,8 +35,8 @@ public class HomePageHelper  {
 	PrintWriter pw;
 
 
-	public HomePageHelper() throws IOException{
-		driver = CreateSession.getWebDriver();
+	public HomePageHelper() throws InterruptedException,IOException{
+		driver = MySession.getWebDriver();
 		homepage = new Homepage(driver);
 		csvFilePath = ".//src//test//java//outputFiles//searchResults.csv";
 	}

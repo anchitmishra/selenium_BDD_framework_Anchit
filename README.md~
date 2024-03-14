@@ -31,11 +31,12 @@ $ mvn test -Dbrowser=chrome
 To run tests headlessly
 $ mvn test -Dheadless=yes
 
-To run specific scenario:
-$ mvn test -Dcucumber.options="--tags @scenario3"
+To run specific scenario:s @scenario3"
 
+$ mvn test -Dcucumber.options="--tag
 To run multiple mentioned scenarios:
 $ mvn test -Dcucumber.options="--tags @scenario3,@scenario2"
+mvn test -Dcucumber.options="--tags @reset"
 
 
 Features of the framework:

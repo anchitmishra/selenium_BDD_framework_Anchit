@@ -18,6 +18,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -35,10 +36,10 @@ import logger.Log;
 public class CommonMethods extends Assertions {
 
 	WebDriver driver = null;
-	public final int timeOut = 45;
+	public  int timeOut = 45;
 	Properties configProp = new Properties();
-	protected FileInputStream configFis;
-	protected File file = new File("");
+	public FileInputStream configFis;
+	public File file = new File("");
 
 	public CommonMethods(WebDriver driver) throws IOException{
 		super(driver);
@@ -50,9 +51,10 @@ public class CommonMethods extends Assertions {
 	/**
 	 * method to open specified url
 	 * @param url to open
+	 * @throws InterruptedException 
 	 */
 	//Step to navigate to specified URL
-	public void get(String url){
+	public void get(String url) throws InterruptedException,IOException{
 		driver.get(url);
 	}
 
@@ -329,8 +331,9 @@ public class CommonMethods extends Assertions {
 	/**
 	 *  method to verify if alert is present
 	 * @return returns true if alert is present else false
+	 * @throws InterruptedException 
 	 */
-	public boolean isAlertPresent() 
+	public boolean isAlertPresent() throws InterruptedException 
 	{ 
 		try 
 		{ 
@@ -341,7 +344,14 @@ public class CommonMethods extends Assertions {
 		}   
 		catch (NoAlertPresentException e) 
 		{   
-			throw new NoAlertPresentException(); 
+			// throw new NoAlertPresentException(); 
+			System.out.println("Alert not pesent....");
+			return false;
+		}   
+		catch (TimeoutException e) 
+		{   
+			System.out.println("Timeout .......");
+			return false;
 		}   
 	}   
 
