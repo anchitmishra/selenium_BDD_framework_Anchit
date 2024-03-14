@@ -11,8 +11,8 @@ public class CreateDB {
     public Statement dbConnection() throws Exception {
         {
             String dbUrl = "jdbc:mysql://localhost:3306/testdb";
-            String userName = "root";
-            String password = "Tcs@2019";
+            String userName = "";
+            String password = "";
 
             Connection connection = DriverManager.getConnection(dbUrl, userName, password);
             Statement statement = connection.createStatement();
