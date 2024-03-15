@@ -17,6 +17,6 @@ public class mmtPage extends CommonMethods {
     public By packageTab = (By.xpath("//a[contains(text(),'Packages')]"));
     public By viewPackage = (By.xpath("//div[@id='Packages']//a[contains(text(),'VIEW ALL ')]"));
     public By closeIframe = (By.xpath("//span[@class='close closeIcon']"));
-    public By baliPackage = (By.xpath("//input[@value='Bali']"));
+    public By baliPackage = (By.xpath("//h1[contains(text(),'Bali Packages')]"));
     public By modalPopup = (By.xpath("//iframe[@src='https://www.googletagmanager.com/ns.html?id=GTM-PHR9S8W']")); 
 }

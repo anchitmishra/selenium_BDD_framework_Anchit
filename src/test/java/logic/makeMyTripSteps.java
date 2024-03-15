@@ -80,6 +80,8 @@ public class makeMyTripSteps {
         tripPage.findElement(tripPage.packageTab).click();
         tripPage.waitForElementToBeClickable(tripPage.viewPackage);
         tripPage.findElement(tripPage.viewPackage).click();
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(2));
     }
 
     @Then("^the user should be able to see all available packages under \"([^\"]*)\"$")
@@ -89,8 +91,8 @@ public class makeMyTripSteps {
         }
         String pageTitle = tripPage.getTitle();
         tripPage.waitForPageToLoad(pageTitle);
-        driver.switchTo().frame(tripPage.findElement(tripPage.modalPopup));
-        tripPage.waitForElementToBeClickable(tripPage.closeIframe);
+        // driver.switchTo().frame(tripPage.findElement(tripPage.modalPopup));
+        tripPage.waitForVisibility(tripPage.closeIframe);
         tripPage.findElement(tripPage.closeIframe).click();
         String expectedString = location;
         tripPage.waitForVisibility(tripPage.baliPackage);
